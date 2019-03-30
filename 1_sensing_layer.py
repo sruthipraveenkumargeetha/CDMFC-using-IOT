@@ -1,5 +1,8 @@
 # Import socket module 
-import socket			 
+import socket	
+
+
+import glob
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
 
@@ -18,14 +21,16 @@ print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
 
 
-filepath = 'Sensor_0001.txt'  
-with open(filepath) as fp:  
-	for cnt, line in enumerate(fp):
-		sensingdata=line
-		print "Sensing data :", sensingdata 
-		s2.send(sensingdata)
-		print
-		print "Sensing data sent to Crowd-sourcing layer" 
-		print s2.recv(1024) #recv ack
+filepath = 'Sensor data/*.txt'  
+files=glob.glob(filepath)
+for name in files:
+	with open(name) as fp:  
+		for cnt, line in enumerate(fp):
+			sensingdata=line
+			print "Sensing data :", sensingdata 
+			s2.send(sensingdata)
+			print
+			print "Sensing data sent to Crowd-sourcing layer" 
+			print s2.recv(1024) #recv ack
 s2.close()	 
 
