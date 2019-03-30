@@ -16,8 +16,10 @@ port = 12345
 s2.connect(('127.0.0.1', port)) 
 print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
-print "Sensing data : D1 D2 D3 D4 D5 D6 D7 D8 D9 D10" 
-s2.send('D1 D2 D3 D4 D5 D6 D7 D8 D9 D10')
+Sensing_Data=open('Sensor_0001.txt', 'r')
+sensingdata=Sensing_Data.read()
+print "Sensing data :", sensingdata 
+s2.send(sensingdata)
 print
 print "Sensing data sent to Crowd-sourcing layer" 
 s2.close()	 
