@@ -28,7 +28,7 @@ print
 mssg=""
 # a forever loop until we interrupt it or 
 # an error occurs 
- 
+keywords_list=["winds","arctic","wind","fog"]
 
 # Establish connection with client. 
 c, addr = s1.accept()	 
@@ -54,8 +54,10 @@ while True:
 
 
 #sending part to CDMFC layer
-
+        flag=0
+	
 	s2.send(mssg)
+		
 	print
 	print "Data sent from Crowdsourcing layer to CDMFC layer" 
 	ack= s2.recv(1024)#recv ack from cdmfc layer
