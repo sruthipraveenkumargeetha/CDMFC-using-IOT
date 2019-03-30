@@ -1,0 +1,64 @@
+# first of all import the socket library 
+import socket			 
+#s1 is always the socket used to receive information from the previous layer process
+#s2 is always the socket used to send information to the next layer process
+
+#Crowd-sourcing layer receives sensing data from the sensing layer and sends the data to CDMFC layer
+
+# next create a socket object 
+s1 = socket.socket()		 
+print "Socket for crowd-sourcing layer is successfully created"
+print
+# reserve a port on your computer in our 
+# case it is 12345 but it can be anything. port no of the crowd-sourcing layer socket.
+port = 12345				
+
+# Next bind to the port 
+# we have not typed any ip in the ip field 
+# instead we have inputted an empty string 
+# this makes the server listen to requests 
+# coming from other computers on the network 
+s1.bind(('', port))		 
+print "Crowd-sourcing layer socket binded to %s" %(port) 
+print
+# put the socket into listening mode 
+s1.listen(5)	 
+print "Crowd-sourcing layer socket is listening"
+print			
+mssg=""
+# a forever loop until we interrupt it or 
+# an error occurs 
+ 
+
+# Establish connection with client. 
+c, addr = s1.accept()	 
+print 'Got connection from', addr ,": Sensing layer socket" 
+
+
+mssg=c.recv(1024)
+print
+
+
+print "Message received from sensing layer", mssg
+# Close the connection with the client 
+c.close() 
+print
+
+
+#sending part to CDMFC layer
+# Create a socket object 
+print "Socket to send data to CDMFC layer is created successfully"
+print
+s2 = socket.socket()		 
+
+# Define the port on which you want to connect ; 12347 is the port no for the CDMFC layer socket.
+port2 = 12347				
+
+# connect to the socket of CDMFC layer socket
+print "Crowd-sourcing layer is connected to the socket of the CDMFC Layer"
+s2.connect(('127.0.0.1', port2)) 
+s2.send(mssg)
+print
+print "Data sent from Crowdsourcing layer to CDMFC layer" 
+s2.close()	 
+
