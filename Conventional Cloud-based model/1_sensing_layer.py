@@ -21,7 +21,7 @@ print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
 
 
-filepath = 'Sensor data/Sensor_0001.txt'  
+filepath = '../Sensor data/Sensor_0001.txt'  
 files=glob.glob(filepath)
 for name in files:
 	with open(name) as fp:  
