@@ -27,19 +27,6 @@ print "CDMFC layer socket is listening"
 # a forever loop until we interrupt it or 
 # an error occurs 
 print
-
-# Establish connection with client. 
-c, addr = s1.accept()	 
-print 'Got connection from', addr ," : Crowdsourcing layer socket"
-print
-# send a thank you message to the client. 
-mssg=c.recv(1024)
-print "Message received from Crowdsourcing layer", mssg
-
-# Close the connection with the client 
-c.close() 
-
-print
 print "CDMFC socket to send data to cloud computing layer is created successfully"
 
 #sending part to CDMFC layer
@@ -51,8 +38,24 @@ port2 = 12350
 print
 # connect to the server on local computer 
 s2.connect(('127.0.0.1', port2)) 
-print "Date sent to Cloud computing layer"
-s2.send(mssg)
+
+
+# Establish connection with client. 
+c, addr = s1.accept()
+ack=""	 
+print 'Got connection from', addr ," : Crowdsourcing layer socket"
+print
+# send a thank you message to the client. 
+while True:
+	mssg=c.recv(1024)
+	print "Message received from Crowdsourcing layer", mssg
+
+	print
+
+	print "Date sent to Cloud computing layer"
+	s2.send(mssg)
+	ack=s2.recv(1024)
+	c.send(ack)
 
 # close the connection 
 s2.close()

@@ -27,16 +27,17 @@ print "Cloud computing layer socket is listening"
 # a forever loop until we interrupt it or 
 # an error occurs 
 print
+c, addr = s1.accept()	 
+print 'Got connection from', addr , " : CDMFC layer socket"
+print
 while True: 
 
 # Establish connection with client. 
-	c, addr = s1.accept()	 
-	print 'Got connection from', addr , " : CDMFC layer socket"
-	print
+	
 # send a thank you message to the client. 
 	print "Message received from CDMFC layer",
 	print (c.recv(1024)) 
-
+        c.send("Next message please!!!")
 # Close the connection with the client 
-	c.close() 
+	
 

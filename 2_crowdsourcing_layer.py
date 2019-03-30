@@ -33,19 +33,6 @@ mssg=""
 # Establish connection with client. 
 c, addr = s1.accept()	 
 print 'Got connection from', addr ,": Sensing layer socket" 
-
-
-mssg=c.recv(1024)
-print
-
-
-print "Message received from sensing layer", mssg
-# Close the connection with the client 
-c.close() 
-print
-
-
-#sending part to CDMFC layer
 # Create a socket object 
 print "Socket to send data to CDMFC layer is created successfully"
 print
@@ -57,8 +44,21 @@ port2 = 12347
 # connect to the socket of CDMFC layer socket
 print "Crowd-sourcing layer is connected to the socket of the CDMFC Layer"
 s2.connect(('127.0.0.1', port2)) 
-s2.send(mssg)
-print
-print "Data sent from Crowdsourcing layer to CDMFC layer" 
+ack=""
+while True:
+	mssg=c.recv(1024)
+	print
+	print "Message received from sensing layer", mssg
+ 
+ 	print
+
+
+#sending part to CDMFC layer
+
+	s2.send(mssg)
+	print
+	print "Data sent from Crowdsourcing layer to CDMFC layer" 
+	ack= s2.recv(1024)#recv ack from cdmfc layer
+	c.send(ack)
 s2.close()	 
 

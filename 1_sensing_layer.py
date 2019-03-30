@@ -16,11 +16,16 @@ port = 12345
 s2.connect(('127.0.0.1', port)) 
 print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
-Sensing_Data=open('Sensor_0001.txt', 'r')
-sensingdata=Sensing_Data.read()
-print "Sensing data :", sensingdata 
-s2.send(sensingdata)
-print
-print "Sensing data sent to Crowd-sourcing layer" 
+
+
+filepath = 'Sensor_0001.txt'  
+with open(filepath) as fp:  
+	for cnt, line in enumerate(fp):
+		sensingdata=line
+		print "Sensing data :", sensingdata 
+		s2.send(sensingdata)
+		print
+		print "Sensing data sent to Crowd-sourcing layer" 
+		print s2.recv(1024) #recv ack
 s2.close()	 
 
