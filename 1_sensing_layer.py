@@ -32,5 +32,5 @@ for name in files:
 			print
 			print "Sensing data sent to Crowd-sourcing layer" 
 			print s2.recv(1024) #recv ack
-s2.close()	 
+	 
 

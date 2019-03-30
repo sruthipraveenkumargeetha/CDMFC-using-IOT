@@ -47,6 +47,8 @@ s2.connect(('127.0.0.1', port2))
 ack=""
 while True:
 	mssg=c.recv(1024)
+	if mssg=="":
+		break
 	print
 	print "Message received from sensing layer", mssg
  
@@ -55,12 +57,18 @@ while True:
 
 #sending part to CDMFC layer
         flag=0
-	
-	s2.send(mssg)
+	for x in keywords_list:
+		if x in mssg:
+			flag=1
+	if flag==1:
+		s2.send(mssg)
+		print
+		print "Data sent from Crowdsourcing layer to CDMFC layer" 
+		ack= s2.recv(1024)#recv ack from cdmfc layer
+		c.send(ack)
+	else:
+		c.send("Next data");
 		
-	print
-	print "Data sent from Crowdsourcing layer to CDMFC layer" 
-	ack= s2.recv(1024)#recv ack from cdmfc layer
-	c.send(ack)
+	
 s2.close()	 
 
