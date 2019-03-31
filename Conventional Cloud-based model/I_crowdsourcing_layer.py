@@ -28,7 +28,8 @@ print
 mssg=""
 # a forever loop until we interrupt it or 
 # an error occurs 
-keywords_list=["winds","arctic","wind","fog"]
+keywords_list=["winds","arctic","wind","fog","lightning","temperature","temperatures","earthquake","earthquakes","landfall","landfalls","tornado","tornadoes",
+"dead","hurricane","hurricanes","injury","injuries","damage","dead","major","gusts","deficit","rainfall","cold"]
 
 # Establish connection with client. 
 c, addr = s1.accept()	 
@@ -60,7 +61,7 @@ while True:
 	for x in keywords_list:
 		if x in mssg:
 			flag=1
-	if flag==1:
+	if True:
 		s2.send(mssg)
 		print
 		print "Data sent from Crowdsourcing layer to cloud layer" 

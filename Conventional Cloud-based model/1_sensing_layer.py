@@ -35,3 +35,5 @@ for name in files:
 	 
 b = datetime.datetime.now()
 print "Time difference:",(b-a)
+with open('../Analysis_Log.txt','ab') as f:
+	f.write(str(datetime.datetime.now()-a)+"\n")

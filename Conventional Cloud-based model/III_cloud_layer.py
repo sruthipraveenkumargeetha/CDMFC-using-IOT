@@ -4,7 +4,7 @@ import datetime
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-		 
+import time 
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
 # next create a socket object 
@@ -30,7 +30,7 @@ print
 s1.listen(5)	 
 print "Cloud computing layer socket is listening"			
 
-keyword_list=["killed","damaging","dense"]
+keyword_list=["killed","damaging","dense","damage","damages","dead","tornado","earthquake","intense","major","hurricane"]
 # a forever loop until we interrupt it or 
 # an error occurs 
 print
@@ -43,6 +43,7 @@ while True:
 # Establish connection with client. 
 	
 # send a thank you message to the client. 
+	time.sleep(0.0004)
 	print "Message received from cloud sourcing layer",
 	mssg=c.recv(1024)
 	count=count+1
@@ -64,7 +65,7 @@ while True:
         c.send("Next message please!!!")
 # Close the connection with the client 
 plt.title('Conventional Cloud Based model')
-plt.plot(timestamps,datano,linewidth=2.0)
+plt.plot(timestamps,datano,linewidth=2.0, marker='o', color='b')
 plt.xlabel('Timestamps')
 plt.ylabel('Datano')
 plt.gcf().autofmt_xdate()

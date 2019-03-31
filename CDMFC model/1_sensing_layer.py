@@ -35,3 +35,5 @@ for name in files:
 	 
 b = datetime.datetime.now()
 print "Time taken",(b-a)
+with open('../Analysis_Log.txt','ab') as f:
+	f.write(str(b-a)+"\t")

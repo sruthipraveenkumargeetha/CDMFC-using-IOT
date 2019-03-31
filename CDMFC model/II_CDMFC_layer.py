@@ -46,7 +46,7 @@ print
 # connect to the server on local computer 
 s2.connect(('127.0.0.1', port2)) 
 
-keyword_list=["killed","damaging","dense"]
+keyword_list=["killed","damaging","dense","damage","damages","dead","tornado","earthquake","intense","major","hurricane"]
 timestamps=[]
 datano=[]
 # Establish connection with client. 
@@ -82,7 +82,7 @@ while True:
 	ack=s2.recv(1024)
 	c.send(ack)
 plt.title('CDMFC model')
-plt.plot(timestamps,datano,linewidth=2.0)
+plt.plot(timestamps,datano,linewidth=2.0, marker='o', color='b')
 plt.xlabel('Timestamps')
 plt.ylabel('Datano')
 plt.gcf().autofmt_xdate()
