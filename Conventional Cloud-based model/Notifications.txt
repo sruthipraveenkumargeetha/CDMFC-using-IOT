@@ -1,3 +1,7 @@
 2019-03-31 14:29:07.583180 --> An EF-1 tornado moves through the Savannah area, with estimated winds of 85-95 mph, a path length of 3 miles and a path width of 1/4 mile. Thankfully no one was killed or injured.More Details.
 2019-03-31 14:29:07.585033 --> Today marked the third day in a row with dense sea fog impacting Charleston Harbor, the nearby Atlantic waters and the intracoastal.
 2019-03-31 14:29:07.585312 --> Another day with dense sea fog, as visibilities fall to near zero at times in Charleston Harbor and the nearby Atlantic.
+2019-03-31 15:22:53.409275 --> An EF-1 tornado moves through the Savannah area, with estimated winds of 85-95 mph, a path length of 3 miles and a path width of 1/4 mile. Thankfully no one was killed or injured.More Details.
+2019-03-31 15:24:26.941216 --> An EF-1 tornado moves through the Savannah area, with estimated winds of 85-95 mph, a path length of 3 miles and a path width of 1/4 mile. Thankfully no one was killed or injured.More Details.
+2019-03-31 15:24:26.941759 --> Today marked the third day in a row with dense sea fog impacting Charleston Harbor, the nearby Atlantic waters and the intracoastal.
+2019-03-31 15:24:26.941988 --> Another day with dense sea fog, as visibilities fall to near zero at times in Charleston Harbor and the nearby Atlantic.

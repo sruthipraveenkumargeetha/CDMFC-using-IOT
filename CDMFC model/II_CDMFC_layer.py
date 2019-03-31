@@ -1,6 +1,12 @@
 # first of all import the socket library 
 import socket	
-import datetime		 
+import datetime
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+
+
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
 
@@ -41,15 +47,20 @@ print
 s2.connect(('127.0.0.1', port2)) 
 
 keyword_list=["killed","damaging","dense"]
-
+timestamps=[]
+datano=[]
 # Establish connection with client. 
 c, addr = s1.accept()
 ack=""	 
 print 'Got connection from', addr ," : Crowdsourcing layer socket"
 print
+count=0
 # send a thank you message to the client. 
 while True:
 	mssg=c.recv(1024)
+	if mssg=="":
+		break
+	count=count+1
 	print "Message received from Crowdsourcing layer", mssg
         
 	print
@@ -63,11 +74,18 @@ while True:
 		print
 		with open('Notifications.txt','ab') as f:
 			f.write(str(datetime.datetime.now())+" --> "+mssg)
+		timestamps.extend([datetime.datetime.now()])
+		datano.extend([count])
 		
 	print "Date sent to Cloud computing layer"
 	s2.send(mssg)
 	ack=s2.recv(1024)
 	c.send(ack)
-
+plt.title('CDMFC model')
+plt.plot(timestamps,datano,linewidth=2.0)
+plt.xlabel('Timestamps')
+plt.ylabel('Datano')
+plt.gcf().autofmt_xdate()
+plt.show()
 # close the connection 
 s2.close()
