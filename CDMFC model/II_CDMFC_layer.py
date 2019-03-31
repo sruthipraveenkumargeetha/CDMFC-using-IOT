@@ -56,6 +56,7 @@ print 'Got connection from', addr ," : Crowdsourcing layer socket"
 print
 count=0
 # send a thank you message to the client. 
+a=datetime.datetime.now()
 while True:
 	mssg=c.recv(1024)
 	if mssg=="":
@@ -74,7 +75,7 @@ while True:
 		print
 		with open('Notifications.txt','ab') as f:
 			f.write(str(datetime.datetime.now())+" --> "+mssg)
-		timestamps.extend([datetime.datetime.now()])
+		timestamps.extend([datetime.datetime.now()-a])
 		datano.extend([count])
 		
 	print "Date sent to Cloud computing layer"

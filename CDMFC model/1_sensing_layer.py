@@ -1,11 +1,9 @@
 # Import socket module 
 import socket	
-
 import datetime
 import glob
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
-
 #Sensing layer only has to send info to Crowd sourcing layer. It does not have to receive the data from any previous layer. Therefore,only
 #socket s2 is created
 # Create a socket object 
@@ -21,6 +19,7 @@ print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
 
 a = datetime.datetime.now()
+
 filepath = '../Sensor data/Sensor_0001.txt'  
 files=glob.glob(filepath)
 for name in files:

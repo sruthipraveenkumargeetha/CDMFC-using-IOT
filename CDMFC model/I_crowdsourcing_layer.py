@@ -28,7 +28,8 @@ print
 mssg=""
 # a forever loop until we interrupt it or 
 # an error occurs 
-keywords_list=["winds","arctic","wind","fog","lightning","temperature","temperatures","earthquake","earthquakes","landfall","landfalls","tornado","tornadoes",
+keywords_list=["winds","arctic","wind","fog","lightning","temperature","temperatures","earthquake","earthquakes","landfall",
+"landfalls","tornado","tornadoes",
 "dead","hurricane","hurricanes","injury","injuries","damage","dead","major","gusts","deficit","rainfall","cold"]
 
 # Establish connection with client. 
