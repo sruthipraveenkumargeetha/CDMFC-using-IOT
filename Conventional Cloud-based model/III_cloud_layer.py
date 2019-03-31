@@ -1,5 +1,6 @@
 # first of all import the socket library 
-import socket			 
+import socket	
+import datetime		 
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
 # next create a socket object 
@@ -24,6 +25,7 @@ print
 s1.listen(5)	 
 print "Cloud computing layer socket is listening"			
 
+keyword_list=["killed","damaging","dense"]
 # a forever loop until we interrupt it or 
 # an error occurs 
 print
@@ -35,11 +37,22 @@ while True:
 # Establish connection with client. 
 	
 # send a thank you message to the client. 
-	print "Message received from CDMFC layer",
+	print "Message received from cloud sourcing layer",
 	mssg=c.recv(1024)
+	
 	if mssg=="":
 		break 
 	print mssg
+	flag=0
+	for x in keyword_list:
+		if x in mssg:
+			flag=1
+			break
+	if flag==1:
+		print "***************************************************"
+		print
+		with open('Notifications.txt','ab') as f:
+			f.write(str(datetime.datetime.now())+" --> "+mssg)
         c.send("Next message please!!!")
 # Close the connection with the client 
 	

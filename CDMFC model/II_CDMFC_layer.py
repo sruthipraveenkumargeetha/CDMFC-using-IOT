@@ -1,5 +1,6 @@
 # first of all import the socket library 
-import socket			 
+import socket	
+import datetime		 
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
 
@@ -39,6 +40,7 @@ print
 # connect to the server on local computer 
 s2.connect(('127.0.0.1', port2)) 
 
+keyword_list=["killed","damaging","dense"]
 
 # Establish connection with client. 
 c, addr = s1.accept()
@@ -49,9 +51,19 @@ print
 while True:
 	mssg=c.recv(1024)
 	print "Message received from Crowdsourcing layer", mssg
-
+        
 	print
-
+	flag=0
+	for x in keyword_list:
+		if x in mssg:
+			flag=1
+			break
+	if flag==1:
+		print "***************************************************"
+		print
+		with open('Notifications.txt','ab') as f:
+			f.write(str(datetime.datetime.now())+" --> "+mssg)
+		
 	print "Date sent to Cloud computing layer"
 	s2.send(mssg)
 	ack=s2.recv(1024)

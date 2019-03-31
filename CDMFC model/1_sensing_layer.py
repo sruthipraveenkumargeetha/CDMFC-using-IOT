@@ -1,7 +1,7 @@
 # Import socket module 
 import socket	
 
-
+import datetime
 import glob
 #s1 is always the socket used to receive information from the previous layer process
 #s2 is always the socket used to send information to the next layer process
@@ -20,7 +20,7 @@ s2.connect(('127.0.0.1', port))
 print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
 
-
+a = datetime.datetime.now()
 filepath = '../Sensor data/Sensor_0001.txt'  
 files=glob.glob(filepath)
 for name in files:
@@ -33,4 +33,5 @@ for name in files:
 			print "Sensing data sent to Crowd-sourcing layer" 
 			print s2.recv(1024) #recv ack
 	 
-
+b = datetime.datetime.now()
+print "Time taken",(b-a)
