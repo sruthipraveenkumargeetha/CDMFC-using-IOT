@@ -1,5 +1,5 @@
 # CDMFC-using-IOT
-
+Crowdsourcing based Disaster Management Monitoring Using Fog Computing, in the Internet Of Things paradigm. 
 HOW TO RUN?
 
 There are two different models implemented - the proposed CDMFC model and the conventional cloud-based model.
