@@ -43,7 +43,7 @@ s2 = socket.socket()
 # Define the port ; port no of cloud computing layer
 port2 = 12350				
 print
-# connect to the server on local computer 
+# connect to the socket of cloud computing layer
 s2.connect(('127.0.0.1', port2)) 
 
 keyword_list=["killed","damaging","dense","damage","damages","dead","tornado","earthquake","intense","major","hurricane"]

@@ -14,7 +14,7 @@ print
 port = 12345				
 
 # connect to the crowd sourcing layer, insert the ip of the machine in which crowdsourcing layer is running for this to work 
-s2.connect(('127.0.0.1', port)) 
+s2.connect(('192.168.43.88', port)) 
 print "Sensing layer socket connected to Crowd-sourcing layer socket"
 print 
 
