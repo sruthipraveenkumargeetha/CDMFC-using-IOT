@@ -18,7 +18,7 @@ port = 12345
 # instead we have inputted an empty string 
 # this makes the server listen to requests 
 # coming from other computers on the network 
-s1.bind(('192.168.43.88', port))		 
+s1.bind(('127.0.0.1', port))		 
 print "Crowd-sourcing layer socket binded to %s" %(port) 
 print
 # put the socket into listening mode 
@@ -45,7 +45,7 @@ port2 = 12347
 
 # connect to the socket of CDMFC layer socket
 print "Crowd-sourcing layer is connected to the socket of the CDMFC Layer"
-s2.connect(('192.168.43.23', port2)) 
+s2.connect(('127.0.0.1', port2)) 
 ack=""
 while True:
 	mssg=c.recv(1024)

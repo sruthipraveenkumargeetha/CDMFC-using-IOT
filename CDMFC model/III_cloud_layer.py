@@ -16,7 +16,7 @@ port = 12350
 # instead we have inputted an empty string 
 # this makes the server listen to requests 
 # coming from other computers on the network 
-s1.bind(('', port))	
+s1.bind(('127.0.0.1', port))	
 print	 
 print "Cloud computing layer socket binded to %s" %(port) 
 print

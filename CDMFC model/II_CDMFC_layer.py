@@ -43,7 +43,7 @@ s2 = socket.socket()
 # Define the port ; port no of cloud computing layer
 port2 = 12350				
 print
-# connect to the socket of cloud computing layer
+# connect to the server on local computer 
 s2.connect(('127.0.0.1', port2)) 
 
 keyword_list=["killed","damaging","dense","damage","damages","dead","tornado","earthquake","intense","major","hurricane"]
@@ -56,7 +56,6 @@ print 'Got connection from', addr ," : Crowdsourcing layer socket"
 print
 count=0
 # send a thank you message to the client. 
-a=datetime.datetime.now()
 while True:
 	mssg=c.recv(1024)
 	if mssg=="":
@@ -75,7 +74,7 @@ while True:
 		print
 		with open('Notifications.txt','ab') as f:
 			f.write(str(datetime.datetime.now())+" --> "+mssg)
-		timestamps.extend([datetime.datetime.now()-a])
+		timestamps.extend([datetime.datetime.now()])
 		datano.extend([count])
 		
 	print "Date sent to Cloud computing layer"
