@@ -24,8 +24,7 @@ for detailed understanding). Notifications.txt file is also filled by the cloud 
 For generating the comparison graph, the key is to execute CDMFC model first and then conventional cloud-based model next.
 Each sequential combined iteration will append a line of pair of timestamps in the Analysis_Log.txt. 
 
-python generate_log.py to generate the comparison graph showing the variation between CDMFC model and the combined cloud-based model
+Run python generate_log.py to generate the comparison graph showing the variation between CDMFC model and the combined cloud-based model
 vs iteration number. 
 Visualization folder is provided in the directory of each model to store the generated graphs.
 
-Feel free to reach out to me for any query or clarification.
